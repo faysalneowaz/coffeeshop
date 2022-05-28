@@ -1,4 +1,5 @@
 import 'package:coffeshop/constent/colors.dart';
+import 'package:coffeshop/constent/widget/logo.dart';
 import 'package:coffeshop/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,9 @@ class _SelectOrganizationState extends State<SelectOrganization> {
     return Scaffold(
       backgroundColor: PRIMARY_COLOR,
       body: Container(
-        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,right: MediaQuery.of(context).size.width *0.1),
+        margin: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width *0.1,
+          right: MediaQuery.of(context).size.width *0.1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,12 +37,7 @@ class _SelectOrganizationState extends State<SelectOrganization> {
             //logo container
             Center(
               
-              child: Container(
-                height: 200,
-                width: 200,
-                
-                child: Image.asset("assets/logo.PNG"),
-              ),
+              child: Logo(logo_url: "assets/logo.PNG"),
             ),
             Container(
               padding: EdgeInsets.all(15.0),
@@ -50,9 +48,9 @@ class _SelectOrganizationState extends State<SelectOrganization> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:  [
-                  Text("Select Your Organization", style: TextStyle(fontSize: 24,color: BOLD_TEXT,fontWeight: FontWeight.bold),),
-                  SizedBox(height: 20.0,),
-                  Text("City",style: TextStyle(fontSize: 18,color: BOLD_TEXT,)),
+                  const Text("Select Your Organization", style: TextStyle(fontSize: 24,color: BOLD_TEXT_Color,fontWeight: FontWeight.bold),),
+                  const SizedBox(height: 20.0,),
+                  const Text("City",style: TextStyle(fontSize: 18,color: BOLD_TEXT_Color,)),
 
                   Container(
 
@@ -83,7 +81,7 @@ class _SelectOrganizationState extends State<SelectOrganization> {
 
 
                   const SizedBox(height: 20.0,),
-                  const Text("Organization",style: TextStyle(fontSize: 18,color: BOLD_TEXT,)),
+                  const Text("Organization",style: TextStyle(fontSize: 18,color: BOLD_TEXT_Color,)),
 
                   DropdownButton<String>(
                     isExpanded: true,
