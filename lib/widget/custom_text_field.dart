@@ -13,8 +13,7 @@ class Text_Fieldcustom extends StatefulWidget {
       this.m_left = 0,
       this.m_right = 0,
       this.m_top = 0,
-      this.m_bottom = 0,
-      this.passview = false})
+      this.m_bottom = 0})
       : super(key: key);
 
   final TextEditingController controller;
@@ -27,7 +26,6 @@ class Text_Fieldcustom extends StatefulWidget {
   double m_bottom;
   double m_left;
   double m_right;
-  bool passview;
 
   @override
   State<Text_Fieldcustom> createState() => _Text_FieldcustomState();
@@ -48,24 +46,11 @@ class _Text_FieldcustomState extends State<Text_Fieldcustom> {
           borderRadius: BorderRadius.all(Radius.circular(widget.borderRedius))),
       child: TextField(
         controller: widget.controller,
-        obscureText: widget.passview,
         style: TextStyle(fontSize: widget.font_size),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: widget.hint_text,
           hintStyle: TextStyle(fontSize: widget.font_size),
-          suffix: InkWell(
-            onTap: () {
-              setState(() {
-                widget.passview = !widget.passview;
-              });
-            },
-            child: Icon(
-              widget.passview ? Icons.visibility : Icons.visibility_off,
-            ),
-          ),
-
-          /// This is Magical Function
         ),
       ),
     );
