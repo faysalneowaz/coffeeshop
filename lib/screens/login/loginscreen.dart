@@ -51,6 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             m_right: 20,
             m_top: 10.0,
             borderRedius: 12.0,
+            passview: true,
           ),
         ],
       ),

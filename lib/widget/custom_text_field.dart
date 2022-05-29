@@ -1,7 +1,7 @@
 import 'package:coffeshop/constent/colors.dart';
 import 'package:flutter/material.dart';
 
-class Text_Fieldcustom extends StatelessWidget {
+class Text_Fieldcustom extends StatefulWidget {
   Text_Fieldcustom(
       {Key? key,
       required this.hint_text,
@@ -13,7 +13,8 @@ class Text_Fieldcustom extends StatelessWidget {
       this.m_left = 0,
       this.m_right = 0,
       this.m_top = 0,
-      this.m_bottom = 0})
+      this.m_bottom = 0,
+      this.passview = false})
       : super(key: key);
 
   final TextEditingController controller;
@@ -26,23 +27,45 @@ class Text_Fieldcustom extends StatelessWidget {
   double m_bottom;
   double m_left;
   double m_right;
+  bool passview;
 
+  @override
+  State<Text_Fieldcustom> createState() => _Text_FieldcustomState();
+}
+
+class _Text_FieldcustomState extends State<Text_Fieldcustom> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(padding),
+      padding: EdgeInsets.all(widget.padding),
       margin: EdgeInsets.only(
-          top: m_top, bottom: m_bottom, left: m_left, right: m_right),
+          top: widget.m_top,
+          bottom: widget.m_bottom,
+          left: widget.m_left,
+          right: widget.m_right),
       decoration: BoxDecoration(
-          color: backColor,
-          borderRadius: BorderRadius.all(Radius.circular(borderRedius))),
+          color: widget.backColor,
+          borderRadius: BorderRadius.all(Radius.circular(widget.borderRedius))),
       child: TextField(
-        controller: controller,
-        style: TextStyle(fontSize: font_size),
+        controller: widget.controller,
+        obscureText: widget.passview,
+        style: TextStyle(fontSize: widget.font_size),
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: hint_text,
-          hintStyle: TextStyle(fontSize: font_size),
+          hintText: widget.hint_text,
+          hintStyle: TextStyle(fontSize: widget.font_size),
+          suffix: InkWell(
+            onTap: () {
+              setState(() {
+                widget.passview = !widget.passview;
+              });
+            },
+            child: Icon(
+              widget.passview ? Icons.visibility : Icons.visibility_off,
+            ),
+          ),
+
+          /// This is Magical Function
         ),
       ),
     );
