@@ -44,19 +44,19 @@ class _LoginScreenState extends State<LoginScreen> {
             borderRedius: 12.0,
           ),
           Container(
-            padding: EdgeInsets.all(6.0),
-            margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(6.0),
+            margin: const EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+            decoration: const BoxDecoration(
                 color: WHITE_COLOR,
                 borderRadius: BorderRadius.all(Radius.circular(12.0))),
             child: TextField(
               controller: password_controller,
               obscureText: _passview,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "password",
-                hintStyle: TextStyle(fontSize: 20),
+                hintStyle: const TextStyle(fontSize: 20),
                 suffix: InkWell(
                   onTap: () {
                     setState(() {
@@ -71,7 +71,62 @@ class _LoginScreenState extends State<LoginScreen> {
                 /// This is Magical Function
               ),
             ),
-          )
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(14.0),
+            margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+            decoration: const BoxDecoration(
+                color: BUTTON_BACKLOGIN,
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
+            child: const Text(
+              "Log in",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: WHITE_COLOR, fontSize: 18.0),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
+            child: Row(children: const [
+              Expanded(
+                  child: Divider(
+                height: 0.5,
+                color: BUTTON_BACKSAVVE,
+              )),
+              Text(
+                "to get your access contact",
+                style: TextStyle(
+                  color: BUTTON_BACKSAVVE,
+                ),
+              ),
+              Expanded(
+                  child: Divider(
+                color: BUTTON_BACKSAVVE,
+              )),
+            ]),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          DescriptionText(
+            mainText: "+8801 ××× ××× ×××",
+            text_position: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          DescriptionText(
+            mainText: "example@organization.com",
+            text_position: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          DescriptionText(
+            mainText: "Chnage Organization",
+            text_position: TextAlign.center,
+            isUnderline: true,
+          ),
         ],
       ),
     );
