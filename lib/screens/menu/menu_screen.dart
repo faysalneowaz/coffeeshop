@@ -1,6 +1,6 @@
 import 'package:coffeshop/constent/colors.dart';
 import 'package:coffeshop/model/main_menu_model.dart';
-import 'package:coffeshop/widget/big_text.dart';
+import 'package:coffeshop/screens/submenu/sub_menu.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -23,11 +23,6 @@ class _MenuScreenState extends State<MenuScreen> {
         menuName: "Deasert",
         menuPhotoURL: "assets/images/deasert.jpg"),
   ];
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +31,11 @@ class _MenuScreenState extends State<MenuScreen> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.only(left: 20.0, right: 20.0),
+          margin: const EdgeInsets.only(left: 20.0, right: 20.0),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   top: 10.0,
                 ),
                 child: const Text(
@@ -54,22 +49,30 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: ListView.builder(
                     itemCount: _mainMenuList.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        margin: EdgeInsets.only(top: 20.0),
-                        decoration: BoxDecoration(
-                            color: Colors.amber,
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(
-                                    "${_mainMenuList[index].menuPhotoURL}"))),
-                        child: Center(
-                          child: Text(
-                            "${_mainMenuList[index].menuName}",
-                            style: const TextStyle(
-                                fontSize: 28.0,
-                                color: WHITE_COLOR,
-                                fontWeight: FontWeight.bold),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => SubMenu())));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          margin: EdgeInsets.only(top: 20.0),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.0),
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(
+                                      "${_mainMenuList[index].menuPhotoURL}"))),
+                          child: Center(
+                            child: Text(
+                              "${_mainMenuList[index].menuName}",
+                              style: const TextStyle(
+                                  fontSize: 28.0,
+                                  color: WHITE_COLOR,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       );
