@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 10.0,
           ),
           DescriptionText(
-            mainText: "Chnage Organization",
+            mainText: "Change Organization",
             text_position: TextAlign.center,
             isUnderline: true,
           ),
